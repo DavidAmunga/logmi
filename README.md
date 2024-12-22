@@ -140,8 +140,8 @@ logger.callback(fn, { / same options as promise / })
 **David Amunga**
 
 - Website: [davidamunga.com](https://davidamunga.com)
-- Twitter: [@davidamunga](https://twitter.com/davidamunga)
-- GitHub: [@davidamunga](https://github.com/davidamunga)
+- Twitter: [@davidamunga_](https://twitter.com/davidamunga_)
+- GitHub: [DavidAmunga](https://github.com/DavidAmunga)
 
 ## License
 
