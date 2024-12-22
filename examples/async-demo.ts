@@ -41,6 +41,7 @@ async function demo() {
       loadingIcon: "🔄",
       successIcon: "🎯",
     });
+    console.log(apiResult);
 
     // Error case
     await logger.promise(simulateError(), {
@@ -64,13 +65,22 @@ async function demo() {
   logger.group("Callback Operations");
 
   try {
-    const dbResult = await logger.callback((cb) => simulateDbQuery(cb), {
-      loading: "Querying database...",
-      success: "Query completed",
-      error: "Query failed",
-      loadingIcon: "🔍",
-      successIcon: "📊",
-    });
+    const dbResult = await logger.promise(
+      new Promise((resolve, reject) => {
+        simulateDbQuery((error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        });
+      }),
+      {
+        loading: "Querying database...",
+        success: "Query completed",
+        error: "Query failed",
+        loadingIcon: "🔍",
+        successIcon: "📊",
+      }
+    );
+    console.log(dbResult);
   } catch (err) {
     // Error already logged by callback method
   }
